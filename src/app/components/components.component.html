@@ -1,0 +1,289 @@
+<div class="wrapper">
+    <div class="page-header section-dark" style="background-image: url('assets/img/slider.jpg')">
+        <div class="filter"></div>
+        <div class="content-center">
+            <div class="container">
+                <div class="title-brand">
+                    <div class="angular-logo">
+                        <img src="assets/img/wave-sound.png" alt="">
+                    </div>
+                    <h1 class="presentation-title">Text - Voice Converter</h1>
+                    <div class="fog-low">
+                        <img src="assets/img/fog-low.png" alt="">
+                    </div>
+                    <div class="fog-low right">
+                        <img src="assets/img/fog-low.png" alt="">
+                    </div>
+                </div>
+
+                <h2 class="presentation-subtitle text-center">Convert your text easily to speech</h2>
+            </div>
+        </div>
+        <div class="moving-clouds" style="background-image: url('assets/img/clouds.png'); "></div>
+        <h6 class=" category-absolute ml-auto mr-auto">Designed and coded by
+        <!-- <h6 class="category category-absolute">Designed and coded by -->
+
+            <a href="https://www.creative-tim.com" target="_blank">
+                <img src="assets/img/achref.png" class="creative-tim-logo">
+            </a>
+        </h6>
+    </div>
+    <div class="main">
+        <div class="container converter">
+        <div class="row">
+            <div class="col-md-6 leftSide">
+                <div class="form-group">
+                    <div class="tim-title">
+                        <h3>Voice</h3>
+                    </div>
+                    <div class="form-field__content">
+                        <select
+                            id="voice-control"
+                            name="voice"
+                            [(ngModel)]="selectedVoice"
+                            (change)="demoSelectedVoice(); updateSayCommand()"
+                            class="form-field__control">
+                            <option value="">- Select a voice -</option>
+                            <option
+                                *ngFor="let voice of voices"
+                                [ngValue]="voice">
+                                {{ voice.name }}
+
+                                <ng-template [ngIf]="recommendedVoices[ voice.name ]">
+                                    &larr; Recommended
+                                </ng-template>
+                            </option>
+                        </select>
+                                
+                        <div class="form-field__subnote">
+                            ( &larr; ) indicates a voice that Ben could understand clearly.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <div class="tim-title">
+                        <h3>Speed</h3>
+                    </div>
+                    <div class="form-field__content">
+                        <select
+                            id="rate-control"
+                            name="rate"
+                            [(ngModel)]="selectedRate"
+                            (change)="demoSelectedVoice(); updateSayCommand()"
+                            class="form-field__control">
+                            <option
+                                *ngFor="let rate of rates"
+                                [ngValue]="rate">
+                                {{ rate }}
+                
+                                <ng-template [ngIf]="( rate === 1 )">
+                                    ( Normal )
+                                </ng-template>
+                            </option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-field">
+                    <div class="tim-title">
+                        <h3>Text</h3>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <textarea
+                            id="text-control"
+                            name="text"
+                            [(ngModel)]="text"
+                            (input)="updateSayCommand()"
+                            (keydown.Meta.Enter)="speak()"
+                            class="form-control"
+                            rows="6"
+                        ></textarea>
+                        <h6>  You can hit <code>CMD+Enter</code> to speak text.</h6> 
+                        </div>
+                        
+                
+                        
+                        
+                        
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button
+                        type="button"
+                        class="btn btn-outline-success"
+                        (click)="speak()">
+                        Speak text
+                    </button>
+                
+                    <button
+                        type="button"
+                        (click)="stop()"
+                        class="btn btn-outline-danger">
+                        Stop speaking
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-6 mt-5">
+                <ng2-smart-table [settings]="settings" 
+                    [source]="source" 
+                    (custom)="onCostum($event)">
+                </ng2-smart-table>
+            </div>
+        </div>
+            
+           
+        </div>
+      
+        <div class="section section-dark section-nucleo-icons">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        <h2 class="title">Text To Voice Converter</h2><br/>
+                        <p class="description">
+                            Online Text to Speech converts text into very human like natural sounding AI voices. You can download your voices in MP3, WAV audio format.
+                        </p><br/>
+                        <a href="https://www.linkedin.com/in/achref-nefzaoui-058a57191" class="btn btn-danger btn-round">Follow Us</a>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12">
+                        <div class="icons-container">
+                            <i class="nc-icon nc-time-alarm"></i>
+                            <i class="nc-icon nc-atom"></i>
+                            <i class="nc-icon nc-camera-compact"></i>
+                            <i class="nc-icon nc-watch-time"></i>
+                            <i class="nc-icon nc-key-25"></i>
+                            <i class="nc-icon nc-diamond"></i>
+                            <i class="nc-icon nc-tap-01"></i>
+                            <i class="nc-icon nc-layout-11"></i>
+                            <i class="nc-icon nc-badge"></i>
+                            <i class="nc-icon nc-bulb-63"></i>
+                            <i class="nc-icon nc-note-03"></i>
+                            <i class="nc-icon nc-planet"></i>
+                            <i class="nc-icon nc-button-play"></i>
+                            <i class="nc-icon nc-zoom-split"></i>
+                            <i class="nc-icon nc-cloud-download-93"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="section section-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto text-center">
+                        <h2 class="title">Completed with examples</h2>
+                        <p class="description">The kit comes with three pre-built pages to help you get started faster. You can change the text and images and you're good to go. More importantly, looking at them will give you a picture of what you can built with this powerful kit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section-image section-login" style="background-image: url('assets/img/login-image.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-12 ml-auto mr-auto">
+                        <div class="card card-register">
+                            <h3 class="title">Welcome</h3>
+                            <div class="social-line text-center">
+                                <a href="#pablo" class="btn btn-neutral btn-facebook btn-just-icon">
+                                    <i class="fa fa-facebook-square"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-neutral btn-google btn-just-icon">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-neutral btn-twitter btn-just-icon">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </div>
+                            <form class="register-form">
+                                <label>Email</label>
+                                <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus===true}">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="nc-icon nc-email-85"></i>
+                                    </span>
+                                  </div>
+
+                                    <input type="text" class="form-control" placeholder="Email" (focus)="focus=true" (blur)="focus=false" >
+                                </div>
+
+                                <label>Password</label>
+                                <div class="input-group form-group-no-border" [ngClass]="{'input-group-focus':focus1===true}">
+                                  <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="nc-icon nc-key-25"></i>
+                                    </span>
+                                  </div>
+                                    <input type="text" class="form-control" placeholder="Password" (focus)="focus1=true" (blur)="focus1=false" >
+                                </div>
+                                <button class="btn btn-danger btn-block btn-round">Register</button>
+                            </form>
+                            <div class="forgot">
+                                <a href="#" class="btn btn-link btn-danger">Forgot password?</a>
+                            </div>
+                        </div>
+                        <div class="col text-center" routerLinkActive="active">
+                            <a [routerLink]="['/signup']" class="btn btn-outline-neutral btn-round btn-lg">View Register Page</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section section-dark">
+            <div class="container">
+                <div class="row example-page">
+                    <div class="col-md-6 text-center" routerLinkActive="active">
+                        <a [routerLink]="['/landing']">
+                            <img src="./assets/img/examples/landing-page.JPG" alt="Rounded Image" class="img-rounded img-responsive" style="width: 100%">
+                            <a [routerLink]="['/landing']" class="btn btn-outline-neutral btn-round">Landing Page</a>
+                        </a>
+                    </div>
+
+                    <div class="col-md-6 text-center" routerLinkActive="active">
+                        <a [routerLink]="['/user-profile']">
+                            <img src="./assets/img/examples/profile-page.JPG" alt="Rounded Image" class="img-rounded img-responsive" style="width: 100%">
+                            <a [routerLink]="['/user-profile']" class="btn btn-outline-neutral btn-round">Profile Page</a>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-8 ml-auto mr-auto text-center">
+                        <h2 class="title">Do you like what you see?</h2>
+                        <p class="description">Cause if you do, it can be yours for Free. Hit the button below and download it. Start a new project or give an old Bootstrap 4 project a new look.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 download-area ml-auto mr-auto">
+                        <a href="https://www.creative-tim.com/product/paper-kit-2" class="btn btn-warning btn-round">Download free HTML</a>
+                        <a href="https://www.creative-tim.com/product/paper-kit-2-angular" class="btn btn-danger btn-round">Download free Angular</a>
+                    </div>
+                </div>
+                <div class="row justify-content-md-center sharing-area text-center">
+                    <div class="text-center col-md-12 col-lg-8">
+                        <h3>Thank you for supporting us!</h3>
+                    </div>
+                    <div class="text-center col-md-12 col-lg-8">
+                        <a href="#pablo" class="btn btn-twitter-bg twitter-sharrre btn-round" rel="tooltip" title="Tweet!">
+                            <i class="fa fa-twitter"></i> Twitter
+                        </a>
+                        <a href="#pablo" class="btn btn-google-bg linkedin-sharrre btn-round" rel="tooltip" title="Share!">
+                            <i class="fa fa-google-plus"></i> Google
+                        </a>
+                        <a href="#pablo" class="btn btn-facebook-bg facebook-sharrre btn-round" rel="tooltip" title="Share!">
+                            <i class="fa fa-facebook-square"></i> Facebook
+                        </a>
+                        <a href="https://github.com/creativetimofficial/paper-kit" class="btn btn-github-bg btn-github sharrre btn-round" rel="tooltip" title="Star on Github">
+                            <i class="fa fa-github"></i> Star
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+</div>

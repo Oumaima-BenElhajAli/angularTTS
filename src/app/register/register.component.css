@@ -1,0 +1,25 @@
+.page-header .filter::after {
+    background-color: rgba(0, 0, 0, 0.2);}
+.card-register {
+    background-color: #037EAA;}
+.bg{
+    color: #00BDDA;
+}
+.title{
+    font-weight: 500;
+    margin-top: 10px;
+}
+.btn-danger.btn-link:hover {
+    background-color: transparent;
+    color: #0C9FB6;
+}
+.btn-round{
+    background-color: #00BDDA;
+    border-color:#00BDDA ;
+}
+.btn-round:hover{
+    background-color: #0C9FB6;
+    border-color:#0C9FB6 ;
+}
+.card-register {
+    margin: 80px 0 70px;}
